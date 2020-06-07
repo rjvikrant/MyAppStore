@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyAppStore</string>
+    <string name="item_fav_app">Favourite Apps</string>
+    <string name="item_app_list">Apps</string>
+    <string name="price_string_fromat">%d $</string>
+    <string name="price_string_free">Free</string>
+    <string name="detailed_information_text">Information</string>
+    <string name="seller_text">Seller</string>
+    <string name="category_text">Category</string>
+    <string name="Copyright_text">Copyright</string>
+    <string name="price_text">Price</string>
+    <string name="release_text">Release Date</string>
+    <string name="more_info_text">more info.</string>
+    <string name="home_fragment_label">iTunes Store</string>
+<string name="img_content_description">Application Icon</string>
+</resources>

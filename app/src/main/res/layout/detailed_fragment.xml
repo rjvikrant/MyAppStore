@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.myappstore.detailed_info.DetailedViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.myappstore.detailed_info.DetailedFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/main_photo_image"
+                imageUrl="@{viewModel.entry.entryImages.get(2).label}"
+                android:layout_width="0dp"
+                android:layout_height="266dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/entry_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.entry.title.label}"
+                android:textColor="#de000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                tools:text="App Name" />
+
+            <TextView
+                android:id="@+id/price_value_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.priceString}"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/entry_type_text"
+                tools:text="$1" />
+
+            <View
+                android:id="@+id/view"
+                style="@style/Divider"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_value_text" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/detailed_information_text"
+                android:textColor="#de000000"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <View
+                android:id="@+id/view2"
+                style="@style/Divider"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@id/seller_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/seller_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/seller_text"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toStartOf="@+id/seller_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <TextView
+                android:id="@+id/seller_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.entry.entryName.label}"
+                android:textColor="#de000000"
+                app:layout_constraintBaseline_toBaselineOf="@+id/seller_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/seller_title" />
+
+
+            <TextView
+                android:id="@+id/category_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/category_text"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toStartOf="@+id/category_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seller_text" />
+
+            <TextView
+                android:id="@+id/category_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.entry.category.attributes.label}"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/category_title"
+                app:layout_constraintTop_toTopOf="@+id/category_title" />
+
+
+            <TextView
+                android:id="@+id/copy_rights_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/Copyright_text"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toStartOf="@+id/copy_rights_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category_text" />
+
+            <TextView
+                android:id="@+id/copy_rights_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.entry.entryRights.label}"
+                android:textColor="#de000000"
+                app:layout_constraintBaseline_toBaselineOf="@+id/copy_rights_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/copy_rights_title" />
+
+
+            <TextView
+                android:id="@+id/price_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/price_text"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toStartOf="@+id/price_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/copy_rights_text" />
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.priceString}"
+                android:textColor="#de000000"
+                app:layout_constraintBaseline_toBaselineOf="@+id/price_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/price_title" />
+
+
+            <TextView
+                android:id="@+id/release_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/release_text"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toStartOf="@+id/release_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_title" />
+
+            <TextView
+                android:id="@+id/release_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.entry.releaseDate.attributes.label}"
+                android:textColor="#de000000"
+                app:layout_constraintBaseline_toBaselineOf="@+id/release_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/release_title" />
+
+            <TextView
+                android:id="@+id/more_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{()->viewModel.moreInfoClick()}"
+                android:text="@string/more_info_text"
+                android:textColor="@color/blue"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/release_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
